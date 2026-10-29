@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Methodology: every formula, stated</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Methodology: every formula, stated</h1>
+
+
+
+<p>Every score this package reports is written out below. Nothing is a
+black box, and where a choice is arguable the argument is given rather
+than hidden.</p>
+<p>All four dimension scores are <strong>ratios in <span class="math inline">\([0, 1]\)</span></strong>, the form ISO/IEC 25024
+measures take. <code>as_pct()</code> converts once, at the point of
+display, to 0–100. Holding one scale internally is deliberate: the
+implementation this package replaces kept completeness on 0–10 and
+consistency on 0–1 and multiplied both by ten, which is why its
+published consistency figure for <code>iris</code> reads 2.5% where 25%
+was meant.</p>
+<div id="completeness" class="section level2">
+<h2>Completeness</h2>
+<p><span class="math display">\[
+\text{completeness} = \left(1 - \frac{1}{p}\sum_{j=1}^{p}
+\frac{m_j}{n}\right)
+\]</span></p>
+<p>where <span class="math inline">\(m_j\)</span> is the number of
+missing values in column <span class="math inline">\(j\)</span>, <span class="math inline">\(n\)</span> the row count and <span class="math inline">\(p\)</span> the column count.</p>
+<p>This is the <strong>mean of the per-column missing rates</strong>,
+not the overall share of missing cells. The two differ whenever columns
+are unequally incomplete, and the column-averaged form dilutes a badly
+damaged column: one column that is 30% empty out of four costs 0.075,
+not 0.3. That is a property of the published formula, kept here for
+continuity with the dissertation; if you want the cell ratio, compute it
+from <code>report$missing$columns</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>report <span class="ot">&lt;-</span> <span class="fu">dg_assess</span>(airquality, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>report<span class="sc">$</span>missing<span class="sc">$</span>columns</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt;    column n_missing       rate</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; 1   Ozone        37 0.24183007</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; 2 Solar.R         7 0.04575163</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; 3    Wind         0 0.00000000</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; 4    Temp         0 0.00000000</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; 5   Month         0 0.00000000</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; 6     Day         0 0.00000000</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>report<span class="sc">$</span>scores[[<span class="st">&quot;completeness&quot;</span>]]</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.83878</span></span></code></pre></div>
+</div>
+<div id="accuracy" class="section level2">
+<h2>Accuracy</h2>
+<p><span class="math display">\[
+\text{accuracy} = \left(1 - \frac{\text{outliers flagged}}{\text{numeric
+values tested}}\right)
+\]</span></p>
+<p>Outliers are flagged by one of two rules.</p>
+<p><strong>Z-score.</strong> A value is flagged when <span class="math inline">\(\left|\frac{x_i - \mu}{\sigma}\right| &gt;
+3\)</span>.</p>
+<p><strong>IQR.</strong> A value is flagged when it falls outside <span class="math inline">\([Q_1 - 1.5\,\text{IQR},\; Q_3 +
+1.5\,\text{IQR}]\)</span>.</p>
+<p>Two implementation choices are worth stating plainly.</p>
+<p><em>Outliers are counted on observed values, not imputed ones.</em>
+Mean imputation adds mass at the centre of the distribution and shrinks
+<span class="math inline">\(\sigma\)</span>, which mechanically
+suppresses the very z-scores this step exists to find. The dissertation
+ran this step after imputation; this package does not.</p>
+<p><em>A zero-variance column contributes zero outliers, not
+<code>NA</code>.</em> <code>scale()</code> returns <code>NaN</code> when
+<span class="math inline">\(\sigma = 0\)</span>, and summing that
+propagated <code>NA</code> through the entire report, so a single
+constant column made the whole outlier count unreportable.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">constant =</span> <span class="fu">rep</span>(<span class="dv">5</span>, <span class="dv">50</span>), <span class="at">varying =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">49</span>), <span class="dv">100</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">detect_outliers</span>(df)<span class="sc">$</span>by_column</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt;     column n_outliers n_tested rate</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; 1 constant          0       50 0.00</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; 2  varying          1       50 0.02</span></span></code></pre></div>
+</div>
+<div id="consistency" class="section level2">
+<h2>Consistency</h2>
+<p><span class="math display">\[
+\text{consistency} = \frac{\left|\{j : \mathrm{VIF}_j \le
+\tau\}\right|}{p_{\text{num}}}
+\]</span></p>
+<p>with <span class="math inline">\(\tau\)</span> =
+<code>vif_threshold</code>, default 5.</p>
+<p>The variance inflation factor is defined as <span class="math inline">\(\mathrm{VIF}_j = \frac{1}{1 - R_j^2}\)</span>,
+where <span class="math inline">\(R_j^2\)</span> comes from regressing
+column <span class="math inline">\(j\)</span> on all other numeric
+columns. This package does not fit those regressions. It uses the
+identity that the VIFs are the <strong>diagonal of the inverted
+correlation matrix</strong>:</p>
+<p><span class="math display">\[
+\mathrm{VIF} = \operatorname{diag}\left(\mathbf{R}^{-1}\right)
+\]</span></p>
+<p>which gives the same numbers in <span class="math inline">\(O(p^3)\)</span> time, independent of the row
+count. The equivalence is asserted in the test suite against explicit
+<code>lm()</code> fits:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">11</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>), <span class="at">b =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>d<span class="sc">$</span>c <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="sc">*</span> d<span class="sc">$</span>a <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> d<span class="sc">$</span>b <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">dg_vif</span>(d)</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt;        a        b        c </span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; 1.311907 1.090128 1.410281</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="fu">vapply</span>(<span class="fu">names</span>(d), <span class="cf">function</span>(col) {</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>  r2 <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(d[[col]] <span class="sc">~</span> ., <span class="at">data =</span> d[<span class="fu">setdiff</span>(<span class="fu">names</span>(d), col)]))<span class="sc">$</span>r.squared</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>  <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> r2)</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>}, <span class="fu">numeric</span>(<span class="dv">1</span>))</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;        a        b        c </span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt; 1.311907 1.090128 1.410281</span></span></code></pre></div>
+<p>Perfectly collinear columns are reported as <code>Inf</code> rather
+than dropped, so they stay visible and still count against the
+score.</p>
+</div>
+<div id="timeliness" class="section level2">
+<h2>Timeliness</h2>
+<p><span class="math display">\[
+\text{timeliness} = \left(1 - \frac{\text{future dates} + \text{stale
+dates}}{\text{dates present}}\right)
+\]</span></p>
+<p>A date is <em>future</em> if it is after <code>Sys.Date()</code>,
+<em>stale</em> if it is more than <code>stale_years</code> (default 10)
+old.</p>
+<p>This dimension is only measurable if date columns exist. Character
+columns are therefore parsed as dates <strong>before</strong> any text
+normalisation runs – otherwise punctuation stripping turns
+<code>&quot;2024-01-15&quot;</code> into <code>&quot;20240115&quot;</code> and no date
+column ever exists.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">when =</span> <span class="fu">c</span>(<span class="st">&quot;2024-01-15&quot;</span>, <span class="st">&quot;2024-02-20&quot;</span>), <span class="at">value =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">dg_assess</span>(df, <span class="at">verbose =</span> <span class="cn">FALSE</span>, <span class="at">strip_punctuation =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>r<span class="sc">$</span>parsed_dates</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;when&quot;</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>r<span class="sc">$</span>dates</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;   column n_future n_stale        min        max</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; 1   when        0       0 2024-01-15 2024-02-20</span></span></code></pre></div>
+</div>
+<div id="distribution" class="section level2">
+<h2>Distribution</h2>
+<p>Skewness and kurtosis use the sample moment forms:</p>
+<p><span class="math display">\[
+g_1 = \frac{1}{n}\sum \left(\frac{x_i-\mu}{\sigma}\right)^3
+\qquad
+g_2 = \frac{1}{n}\sum \left(\frac{x_i-\mu}{\sigma}\right)^4 - 3
+\]</span></p>
+<p>The <span class="math inline">\(-3\)</span> makes <span class="math inline">\(g_2\)</span> <strong>excess</strong> kurtosis, so
+a normal distribution scores 0. This matters: the dissertation’s formula
+subtracts 3 but its code called <code>moments::kurtosis()</code>, which
+does not, so the published formula and the published code disagreed by
+exactly 3. The formula is the contract here.</p>
+<p>Normality uses the Shapiro-Wilk test, which is undefined above 5,000
+observations. Larger columns are tested on a deterministic subsample and
+the size actually used is reported in <code>shapiro_n</code>, so the
+result is never presented as though the whole column were tested.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">analyze_distribution</span>(<span class="fu">data.frame</span>(<span class="at">normal =</span> <span class="fu">rnorm</span>(<span class="dv">20000</span>), <span class="at">skewed =</span> <span class="fu">rexp</span>(<span class="dv">20000</span>)))</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt;   column     n     skewness excess_kurtosis    shapiro_p shapiro_n normal</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; 1 normal 20000 -0.002693889     -0.02254362 4.462821e-01      5000   TRUE</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; 2 skewed 20000  2.116848006      6.91386102 6.150799e-62      5000  FALSE</span></span></code></pre></div>
+</div>
+<div id="the-overall-score" class="section level2">
+<h2>The overall score</h2>
+<p><span class="math display">\[
+\text{overall} = \frac{\sum_{d \in D} w_d \, s_d}{\sum_{d \in D} w_d}
+\]</span></p>
+<p>where <span class="math inline">\(D\)</span> is the set of dimensions
+that <strong>apply</strong> to the data. A data set with no date columns
+cannot be scored on timeliness, so timeliness is dropped and the
+remaining weights are renormalised rather than the data being penalised
+for a dimension it cannot have.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>text_only <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">dg_assess</span>(text_only, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>r<span class="sc">$</span>scores</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt;     accuracy completeness  consistency  credibility  currentness </span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt;           NA            1            1           NA           NA</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>r<span class="sc">$</span>overall</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div>
+</div>
+<div id="the-isoiec-25012-model" class="section level2">
+<h2>The ISO/IEC 25012 model</h2>
+<p>Everything above is a statistic. This section is how those statistics
+become scores against the standard’s model.</p>
+<p>ISO/IEC 25012 defines five <strong>inherent characteristics</strong>
+of data quality – accuracy, completeness, consistency, credibility and
+currentness – and beneath them fifteen <strong>quality
+properties</strong>. ISO/IEC 25024 gives each property a measurement
+function of the form</p>
+<p><span class="math display">\[
+X = \frac{A}{B}
+\]</span></p>
+<p>on a ratio scale over <span class="math inline">\([0.0,
+1.0]\)</span>, where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are counts of <em>quality measure
+elements</em>: <span class="math inline">\(A\)</span> the items
+satisfying the property, <span class="math inline">\(B\)</span> the
+items <strong>for which the property is defined at all</strong>.</p>
+<p>That second count is the whole difficulty. For the accuracy-range
+property, <span class="math inline">\(B\)</span> is “the number of data
+items for which can be defined a required interval of values” – and a
+required interval is not in the data. It is declared by whoever knows
+what the data means. This is exactly why every other R package in this
+space demands a data dictionary before it will run.</p>
+<p><code>datagrade</code> splits the difference. Six properties have a
+<span class="math inline">\(B\)</span> countable from the table itself
+and are always measured; nine have a <span class="math inline">\(B\)</span> that only a declaration can supply, and
+<code>dg_spec()</code> is where it goes.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>report <span class="ot">&lt;-</span> <span class="fu">dg_assess</span>(iris, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>report<span class="sc">$</span>measures[, <span class="fu">c</span>(<span class="st">&quot;code&quot;</span>, <span class="st">&quot;characteristic&quot;</span>, <span class="st">&quot;value&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt;             code characteristic value   a   b</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; 5      EXAC_SINT       accuracy    NA  NA  NA</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; 6     EXAC_SEMAN       accuracy    NA  NA  NA</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt; 7       RAN_EXAC       accuracy    NA  NA  NA</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt; 1       COMP_REG   completeness  1.00 150 150</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt; 2   COMP_VAL_ESP   completeness  1.00 750 750</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt; 3      COMP_FICH   completeness    NA  NA  NA</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt; 4  FAL_COMP_FICH   completeness  1.00 150 150</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt; 8        INT_REF    consistency    NA  NA  NA</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">#&gt; 9      RIES_INCO    consistency  0.25   1   4</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#&gt; 10    CONS_SEMAN    consistency    NA  NA  NA</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co">#&gt; 11     CONS_FORM    consistency  1.00 150 150</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co">#&gt; 12  CRED_VAL_DAT    credibility    NA  NA  NA</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="co">#&gt; 13     CRED_FUEN    credibility    NA  NA  NA</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="co">#&gt; 14      FREC_ACT    currentness    NA  NA  NA</span></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a><span class="co">#&gt; 15      CONV_ACT    currentness    NA  NA  NA</span></span></code></pre></div>
+<div id="the-six-that-need-no-declaration" class="section level3">
+<h3>The six that need no declaration</h3>
+<p><strong><code>COMP_REG</code>, record completeness.</strong> <span class="math inline">\(A\)</span> is records with every required field
+populated, <span class="math inline">\(B\)</span> is all records. With
+no <code>required</code> in the spec, every column counts as
+required.</p>
+<p><strong><code>COMP_VAL_ESP</code>, data value completeness.</strong>
+<span class="math inline">\(A\)</span> is populated cells in the
+required columns, <span class="math inline">\(B\)</span> is all cells in
+them. This differs from the dissertation’s completeness, which averaged
+the per-column missing rates and so diluted a badly damaged column; the
+cell ratio is the form the standard’s <span class="math inline">\(A/B\)</span> takes.</p>
+<p><strong><code>FAL_COMP_FICH</code>, false completeness of
+file.</strong> A cell can be occupied and still empty. <span class="math inline">\(A\)</span> is text values that are not
+placeholders, <span class="math inline">\(B\)</span> is all non-null
+text values in the required columns. The placeholder list is short and
+conservative on purpose – every entry on it (<code>&quot;none&quot;</code>,
+<code>&quot;unknown&quot;</code>, <code>&quot;-999&quot;</code>) is a legitimate value in
+<em>some</em> data set, and a false positive silently lowers the score.
+Matching is case-insensitive after trimming. Replace the list with
+<code>null_equivalents</code>, or pass <code>character(0)</code> to
+disable the check.</p>
+<p><strong><code>RIES_INCO</code>, risk of inconsistency.</strong> <span class="math inline">\(A\)</span> is numeric columns with <span class="math inline">\(\mathrm{VIF} \le \tau\)</span>, <span class="math inline">\(B\)</span> is numeric columns with a computable
+VIF. The reasoning: information held more than once can contradict
+itself, and a column whose variance is largely explained by the others
+carries no independent content. This is a <strong>proxy</strong>, not a
+contradiction count – the standard’s property concerns data items at
+risk of inconsistency, and collinearity is the only signal for that
+available without declared rules. Declared rules go to
+<code>CONS_SEMAN</code> instead.</p>
+<p><strong><code>CONS_FORM</code>, format consistency.</strong> Each
+value is reduced to a <em>signature</em>: runs of digits become
+<code>9</code>, runs of letters <code>A</code>, everything else is kept.
+So <code>&quot;2024-01-15&quot;</code> and <code>&quot;1999-12-31&quot;</code> share the
+signature <code>9-9-9</code>. <span class="math inline">\(A\)</span> is
+values matching their column’s dominant signature, <span class="math inline">\(B\)</span> is non-null text values.</p>
+<p>The trap is free text. Every sentence is its own signature, so a
+prose column would score near zero for failing to conform to a format it
+never had. A column is therefore only measured when its values collapse
+to a handful of shapes – at most <span class="math inline">\(\max(3,
+\lceil 0.05 \, d \rceil)\)</span> signatures for <span class="math inline">\(d\)</span> distinct values. Columns that fail this
+test are dropped from <span class="math inline">\(B\)</span> and named
+in the measure’s <code>note</code>, not scored.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ref =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;AB-1234&quot;</span>, <span class="dv">8</span>), <span class="st">&quot;1234-AB&quot;</span>, <span class="st">&quot;XX/99&quot;</span>),</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">dg_assess</span>(d, <span class="at">verbose =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>measures</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>m[m<span class="sc">$</span>code <span class="sc">==</span> <span class="st">&quot;CONS_FORM&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;value&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt;    value a  b</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt; 11   0.8 8 10</span></span></code></pre></div>
+<p>Declaring <code>formats</code> in the spec replaces the inferred
+signature with a required one, which changes the question from “is this
+column internally consistent?” to “does it match the rule?”.</p>
+<p><strong><code>CONV_ACT</code>, timeliness of update.</strong> <span class="math inline">\(A\)</span> is dates neither in the future nor
+older than <code>max_age</code> (ten years by default), <span class="math inline">\(B\)</span> is all dates present. Future dates are
+counted against the score rather than ignored: they are impossible, and
+treating them as fresh would let a corrupt timestamp <em>raise</em>
+currentness.</p>
+</div>
+<div id="the-nine-that-need-a-declaration" class="section level3">
+<h3>The nine that need a declaration</h3>
+<p>Each is <code>NA</code> until the corresponding
+<code>dg_spec()</code> argument is given, and each carries a
+<code>note</code> saying which argument that is. <code>NA</code> here is
+not a bad score – it is the statement that <span class="math inline">\(B\)</span> could not be counted. Aggregation drops
+these rather than scoring them zero, so an undocumented data set is
+never punished for being undocumented.</p>
+<p>Two details are worth stating because they change what the
+denominators mean.</p>
+<p><em><code>EXAC_SEMAN</code> joins on the declared key first.</em> A
+record with no counterpart in the reference is unverifiable, not
+inaccurate, so it never enters <span class="math inline">\(B\)</span>.</p>
+<p><em><code>CONS_SEMAN</code> counts rule evaluations, not
+records.</em> <span class="math inline">\(B\)</span> is records times
+evaluable rules. A rule that errors – because it names a column the data
+does not have – is a specification error rather than a data failure: it
+is excluded from <span class="math inline">\(B\)</span> and named in the
+<code>note</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">dg_assess</span>(d, <span class="at">spec =</span> <span class="fu">dg_spec</span>(<span class="at">rules =</span> <span class="fu">list</span>(<span class="at">fine =</span> <span class="sc">~</span> x <span class="sc">&gt;</span> <span class="dv">0</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>                                              <span class="at">broken =</span> <span class="sc">~</span> missing_col <span class="sc">&gt;</span> <span class="dv">0</span>)),</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>               <span class="at">verbose =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>measures</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>m[m<span class="sc">$</span>code <span class="sc">==</span> <span class="st">&quot;CONS_SEMAN&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;value&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;note&quot;</span>)]</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="co">#&gt;    value a b                                      note</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="co">#&gt; 10     1 4 4 rules that could not be evaluated: broken</span></span></code></pre></div>
+</div>
+<div id="plausibility-which-is-not-accuracy" class="section level3">
+<h3>Plausibility, which is not accuracy</h3>
+<p>The dissertation’s accuracy score flagged outliers against an
+interval derived from the data – <span class="math inline">\(\mu \pm
+3\sigma\)</span>, or the IQR fence. All three ISO accuracy properties
+require an interval, pattern or reference that was <em>declared</em>.
+Substituting a derived one measures something real but different: an
+outlier need not be wrong, and a wrong value can sit exactly on the
+mean.</p>
+<p>So the measure is kept, renamed <code>plausibility</code>, reported
+beside the five characteristics and excluded from <code>overall</code>.
+It is the most useful number in the report for data that arrives with no
+documentation, and it is not the standard’s measure.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>report<span class="sc">$</span>plausibility</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#&gt; [1] 0.9983333</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>report<span class="sc">$</span>scores[[<span class="st">&quot;accuracy&quot;</span>]]   <span class="co"># NA: no interval was declared</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co">#&gt; [1] NA</span></span></code></pre></div>
+</div>
+<div id="aggregation-which-the-standard-does-not-specify" class="section level3">
+<h3>Aggregation, which the standard does not specify</h3>
+<p>Properties combine into a characteristic by the unweighted mean over
+those that apply; characteristics combine into <code>overall</code> by
+the weighted mean over those that apply. <strong>ISO/IEC 25024 does not
+address how measures should be aggregated</strong>, so both steps are
+this package’s choice and are stated as such rather than presented as
+conformance.</p>
+<p><span class="math display">\[
+\text{characteristic} = \frac{1}{|P|}\sum_{p \in P} X_p
+\qquad
+\text{overall} = \frac{\sum_{c \in C} w_c \, s_c}{\sum_{c \in C} w_c}
+\]</span></p>
+<p>where <span class="math inline">\(P\)</span> is the applicable
+properties of that characteristic and <span class="math inline">\(C\)</span> the applicable characteristics.</p>
+</div>
+<div id="what-is-still-not-claimed" class="section level3">
+<h3>What is still not claimed</h3>
+<p>The <em>model</em> implemented here – five characteristics, fifteen
+properties, their identifiers, the <span class="math inline">\(A/B\)</span> form – is sourced below. What is
+<strong>not</strong> verified against the standard is the exact
+definition of each property’s quality measure elements: precisely which
+items ISO counts into <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Those live in Annexes A–E of ISO/IEC
+25024, which are not in any public source. Where this package had to
+choose, the choice is written out above and visible in the
+<code>a</code> and <code>b</code> columns of
+<code>report$measures</code>, so it can be checked and disagreed
+with.</p>
+<p>Note also that ISO’s word is <strong>currentness</strong>;
+<em>timeliness</em> comes from a different tradition and was the
+dissertation’s word. It is kept as <code>report$timeliness</code> and
+accepted in <code>weights</code>.</p>
+</div>
+<div id="sources-for-the-claims-in-this-section" class="section level3">
+<h3>Sources for the claims in this section</h3>
+<p>ISO/IEC 25012 and 25024 are paywalled. Every statement above about
+their <em>structure</em> is cited below. The standard’s own measurement
+functions are deliberately <strong>not</strong> reproduced, because they
+could not be verified without the documents themselves.</p>
+<ul>
+<li><p>ISO/IEC 25024:2015. <em>Systems and software engineering —
+Systems and software Quality Requirements and Evaluation (SQuaRE) —
+Measurement of data quality.</em> <a href="https://www.iso.org/standard/35749.html" class="uri">https://www.iso.org/standard/35749.html</a></p></li>
+<li><p>ISO/IEC 25012:2008. <em>Software engineering — SQuaRE — Data
+quality model.</em> <a href="https://www.iso.org/standard/35736.html" class="uri">https://www.iso.org/standard/35736.html</a></p></li>
+<li><p>Gualo, F., Rodriguez, M., Verdugo, J., Caballero, I. and
+Piattini, M. (2021). ‘Data Quality Certification using ISO/IEC 25012:
+Industrial Experiences’, <em>Journal of Systems and Software</em>. <a href="https://arxiv.org/abs/2102.11527" class="uri">https://arxiv.org/abs/2102.11527</a></p>
+<p>The source for three specific claims: that ISO/IEC 25024 measures
+take the form <span class="math inline">\(X = A/B\)</span> on a ratio
+scale over <span class="math inline">\([0.0, 1.0]\)</span>; that the
+Accuracy Range measure (RAN_EXAC) defines its element <span class="math inline">\(B\)</span> as “the number of data items for which
+can be defined a required interval of values”; and that “ISO/IEC 25024
+does not specifically address how the measures corresponding to the data
+quality properties should be aggregated to compute the overall quality
+level for each data quality characteristic.” The authors are from
+AQCLab, an accredited ISO/IEC 25012 data quality evaluation
+laboratory.</p></li>
+<li><p>Calabrese, J., Esponda, S. and Pesado, P. (2020). ‘Framework for
+Data Quality Evaluation Based on ISO/IEC 25012 and ISO/IEC 25024’,
+<em>8th Conference on Cloud Computing, Big Data &amp; Emerging
+Topics</em>, Universidad Nacional de La Plata. <a href="https://sedici.unlp.edu.ar/handle/10915/104778" class="uri">https://sedici.unlp.edu.ar/handle/10915/104778</a></p>
+<p>The source for the five inherent characteristics being Accuracy,
+Completeness, Consistency, Credibility and Currentness — which is how
+the naming mismatch with <em>timeliness</em> was established — and for
+the decomposition of each characteristic into the fifteen quality
+properties and their identifiers implemented in this package.</p></li>
+<li><p>Demirhan, O. H. (2024). <em>Assessing Data Quality Management
+Issues in Open-Sourced Data Sets with Statistical Methodology.</em> MSc
+dissertation, University of Greenwich. Cites ISO/IEC 25024:2015 eight
+times, all within Chapter 2; the citation establishes what the
+dimensions mean and is not a claim of measure conformance.</p></li>
+</ul>
+<p>The standard’s Annexes A–E — the synoptic table of quality measure
+elements, the measures indexed by element and target entity, and the
+alphabetic measure list — are what would settle the remaining question
+of exactly which items belong in each <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. They are not reproduced in any public
+source.</p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

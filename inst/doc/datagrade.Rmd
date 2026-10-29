@@ -1,0 +1,163 @@
+---
+title: "Getting started with datagrade"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with datagrade}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", fig.width = 8,
+                      fig.height = 4.5, dpi = 120)
+library(datagrade)
+```
+
+## One call
+
+`dg_assess()` takes a data frame or a file path and returns a `dg_report`
+object. Nothing is written to the global environment, and the data frame you
+pass in is never modified.
+
+```{r}
+report <- dg_assess(iris, verbose = FALSE)
+report
+```
+
+## The object, not the printout
+
+The reference implementation this package grew out of printed everything with
+`cat()` and returned `NULL`, so nothing could be used programmatically. Here the
+printout is a side effect and the object is the product.
+
+```{r}
+report$scores
+report$measures[, c("code", "characteristic", "value", "a", "b")]
+report$outliers$by_column
+report$redundancy$pairs
+```
+
+Each measure is a ratio `A / B`: `A` counts the data items satisfying the
+property, `B` the items for which the property is defined at all. A measure with
+`b = NA` is not a failing measure -- it is one whose denominator could not be
+counted, because nobody has said what the data is supposed to look like yet.
+
+## Declaring what the data should look like
+
+Six of the fifteen properties are computable from the table alone. The other
+nine compare the data against an expectation, and an expectation is declared,
+not discovered. `dg_spec()` is where it goes; every argument is optional and
+each one switches on the measures that depend on it.
+
+```{r}
+spec <- dg_spec(
+  required = c("Sepal.Length", "Species"),
+  ranges   = list(Sepal.Length = c(4, 8), Petal.Width = c(0, 3)),
+  domains  = list(Species = levels(iris$Species)),
+  rules    = list(petal_smaller = ~ Petal.Length < Sepal.Length)
+)
+spec
+```
+
+```{r}
+scored <- dg_assess(iris, spec = spec, verbose = FALSE)
+scored$scores
+scored$measures[scored$measures$applicable,
+                c("code", "value", "a", "b")]
+```
+
+Accuracy is now measurable, where without a spec it was `NA`. The `note` column
+says what each remaining measure is still waiting for:
+
+```{r}
+waiting <- scored$measures[!scored$measures$applicable, c("code", "note")]
+waiting
+```
+
+## Plausibility is not accuracy
+
+One number sits outside the model deliberately. `plausibility` flags outliers
+against an interval *derived* from the data, where every ISO accuracy property
+needs one that was *declared*. An outlier need not be wrong, and a wrong value
+can sit exactly on the mean -- so it is reported separately and left out of the
+overall score.
+
+```{r}
+report$plausibility
+report$scores[["accuracy"]]   # NA: nothing was declared
+```
+
+It is still the most useful single number in the report for data that arrives
+with no documentation, which is most open data.
+
+`summary()` gives the same content as tables:
+
+```{r}
+summary(report)$columns
+```
+
+## Assessing many data sets at once
+
+`as.data.frame()` collapses a report to one row, which is what makes a corpus
+sweep a two-liner:
+
+```{r}
+datasets <- list(iris = iris, mtcars = mtcars, airquality = airquality)
+sweep <- do.call(rbind, lapply(names(datasets), function(nm) {
+  row <- as.data.frame(dg_assess(datasets[[nm]], verbose = FALSE))
+  row$source <- nm
+  row
+}))
+sweep[, c("source", "rows", "completeness", "consistency", "overall",
+          "plausibility")]
+```
+
+## Figures
+
+`dg_plots()` returns a named list of ggplot objects. Every figure is built from
+statistics computed during the assessment, so the plot objects never carry the
+raw observations.
+
+```{r}
+figures <- dg_plots(report)
+names(figures)
+figures$scores
+```
+
+```{r}
+figures$correlation
+```
+
+```{r, fig.height = 5.5}
+figures$distribution
+```
+
+Use `dg_save_plots(report, "figures/")` to write them all to disk.
+
+## Reading from a file
+
+```{r}
+path <- tempfile(fileext = ".csv")
+write.csv(mtcars, path, row.names = FALSE)
+dg_assess(path = path, verbose = FALSE)$scores
+unlink(path)
+```
+
+`.csv`, `.tsv` and `.txt` are read with base R. `.xls` and `.xlsx` need the
+suggested **readxl** package.
+
+## Helpers stand alone
+
+Each of the checks is exported and usable on its own:
+
+```{r}
+detect_data_types(data.frame(id = c("a", "b", "c"), n = c(1.5, 2.5, 3.5)))
+dg_vif(iris)
+analyze_distribution(iris)
+```
+
+## Where to next
+
+* `vignette("methodology")` -- every formula, and how each score is computed.
+* `vignette("scalability")` -- measured behaviour from 54 thousand to 10 million rows.
+* `vignette("deviations")` -- how this package differs from the dissertation it implements, and why.

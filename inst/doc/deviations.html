@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Deviations from the dissertation</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Deviations from the dissertation</h1>
+
+
+
+<p>This package implements the framework described in:</p>
+<blockquote>
+<p>Demirhan, O. H. (2024). <em>Assessing Data Quality Management Issues
+in Open-Sourced Data Sets with Statistical Methodology.</em> MSc
+dissertation, University of Greenwich.</p>
+</blockquote>
+<p>The dissertation is a fixed, submitted document. This package is not,
+and where the two disagree the disagreement is recorded here rather than
+quietly resolved. Anyone comparing a number in the dissertation against
+a number this package produces should read this page first.</p>
+<div id="numbers-that-changed" class="section level2">
+<h2>Numbers that changed</h2>
+<div id="consistency-score-for-iris" class="section level3">
+<h3>Consistency score for <code>iris</code></h3>
+<p>The dissertation reports <strong>2.5%</strong>. The corresponding
+measure here – risk of inconsistency, <code>RIES_INCO</code> – reports
+<strong>0.250, which is 25%</strong>.</p>
+<p>The scoring function returned a proportion on 0–1 while completeness
+returned a score on 0–10, and the caller multiplied both by ten as
+though they were on the same scale. The underlying quantity was never
+wrong; its presentation was off by a factor of ten. Scores are now held
+as ratios in <span class="math inline">\([0, 1]\)</span> everywhere and
+converted to percentages in exactly one place.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>report <span class="ot">&lt;-</span> <span class="fu">dg_assess</span>(iris, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> report<span class="sc">$</span>measures</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>m[m<span class="sc">$</span>code <span class="sc">==</span> <span class="st">&quot;RIES_INCO&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;value&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt;   value a b</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; 9  0.25 1 4</span></span></code></pre></div>
+<p>Note that <code>report$scores[[&quot;consistency&quot;]]</code> is no longer
+this number. Consistency is now a characteristic averaging every
+applicable property beneath it, of which <code>RIES_INCO</code> is one;
+see the section on the scoring model below.</p>
+</div>
+<div id="redundant-columns" class="section level3">
+<h3>Redundant columns</h3>
+<p>The dissertation reports
+<code>&quot;Petal.Length&quot;, &quot;Petal.Width&quot;, &quot;Sepal.Length&quot;</code>, which is
+correct. The code that produced it also appended the literal strings
+<code>&quot;row&quot;</code> and <code>&quot;col&quot;</code>, because it took
+<code>colnames()</code> of the index matrix returned by
+<code>which(..., arr.ind = TRUE)</code> – whose columns are named “row”
+and “col” – rather than the names of the correlation matrix. At a high
+enough threshold the function returned those two strings and nothing
+else, reporting redundancy in data that had none.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">flag_redundant_columns</span>(iris, <span class="fl">0.5</span>)<span class="sc">$</span>columns</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Petal.Length&quot; &quot;Petal.Width&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">flag_redundant_columns</span>(iris, <span class="fl">0.99</span>)<span class="sc">$</span>columns</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; character(0)</span></span></code></pre></div>
+</div>
+<div id="kurtosis" class="section level3">
+<h3>Kurtosis</h3>
+<p>The dissertation’s formula subtracts 3, so that a normal distribution
+scores 0. Its code called <code>moments::kurtosis()</code>, which does
+not subtract 3 and returns 3 for a normal distribution. Formula and code
+disagreed by exactly that constant. This package follows the
+formula.</p>
+</div>
+</div>
+<div id="behaviour-that-changed" class="section level2">
+<h2>Behaviour that changed</h2>
+<div id="figures-are-produced" class="section level3">
+<h3>Figures are produced</h3>
+<p>The plotting code was written as
+<code>ggplot(...) + labs(...) + theme_minimal() %&gt;% print()</code>.
+Because <code>%&gt;%</code> binds more tightly than <code>+</code>, that
+parses as
+<code>ggplot(...) + labs(...) + (theme_minimal() %&gt;% print())</code>:
+the <em>theme object</em> was printed and the plot was discarded. Inside
+a <code>for</code> loop, where auto-printing does not happen, no figure
+was ever displayed. The boxplots, heatmaps and histograms shown in the
+dissertation cannot be produced by the code that accompanies it.</p>
+</div>
+<div id="the-function-returns-something" class="section level3">
+<h3>The function returns something</h3>
+<p>The dissertation documents a “Returns” section listing completeness,
+outlier count, consistency and so on. The implementation printed all of
+it with <code>cat()</code> and returned <code>NULL</code>.
+<code>dg_assess()</code> returns a <code>dg_report</code> object;
+printing is a side effect.</p>
+</div>
+<div id="the-data-argument-exists" class="section level3">
+<h3>The <code>data</code> argument exists</h3>
+<p><code>data = my_data_frame</code> is documented in three places in
+the dissertation and implemented in none of them – only
+<code>path</code> existed. It now works.</p>
+</div>
+<div id="text-is-not-destroyed" class="section level3">
+<h3>Text is not destroyed</h3>
+<p>Text cleaning applied <code>gsub(&quot;[^a-zA-Z0-9 ]&quot;, &quot;&quot;)</code>
+unconditionally, deleting every accented and non-Latin character, every
+date separator and every <code>@</code>. An assessment tool should
+diagnose, not operate, so whitespace normalisation is the only default
+and everything else is opt-in and Unicode-aware.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">city =</span> <span class="fu">c</span>(<span class="st">&quot; Ağrı &quot;</span>, <span class="st">&quot;Çorum&quot;</span>), <span class="at">email =</span> <span class="fu">c</span>(<span class="st">&quot;a@b.com&quot;</span>, <span class="st">&quot;c@d.org&quot;</span>),</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>                 <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">clean_text_columns</span>(df)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt;    city   email</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; 1  Ağrı a@b.com</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; 2 Çorum c@d.org</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="fu">clean_text_columns</span>(df, <span class="at">strip_punctuation =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;    city email</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; 1  Ağrı abcom</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; 2 Çorum cdorg</span></span></code></pre></div>
+</div>
+<div id="dates-are-parsed-before-text-is-touched" class="section level3">
+<h3>Dates are parsed before text is touched</h3>
+<p>Because a CSV delivers dates as character and text cleaning stripped
+the separators, no <code>Date</code> column ever existed and the date
+validation step silently checked nothing. Date parsing now runs
+first.</p>
+</div>
+<div id="identifier-detection-actually-fires" class="section level3">
+<h3>Identifier detection actually fires</h3>
+<p>Appendix A.3 tests uniqueness <em>after</em> the storage-type tests,
+so the <code>&quot;ID&quot;</code> branch was unreachable: a character key matched
+<code>is.character()</code> and returned <code>&quot;Text&quot;</code>. The
+uniqueness test now runs first.</p>
+<p>It also runs with an extra condition that the dissertation did not
+need but this implementation does: a numeric column qualifies as a key
+only if its values are whole numbers. Without it, every continuous
+measurement column is distinct in every row, gets classified as an
+identifier, and is excluded from the statistics – which silently
+inflated the consistency score to a perfect 1.</p>
+</div>
+<div id="outliers-are-counted-before-imputation" class="section level3">
+<h3>Outliers are counted before imputation</h3>
+<p>Mean imputation adds mass at the centre and shrinks the standard
+deviation, suppressing the z-scores the outlier step is looking for. The
+dissertation ran outlier detection on the imputed frame; this package
+uses observed values.</p>
+</div>
+<div id="nothing-is-written-to-the-global-environment" class="section level3">
+<h3>Nothing is written to the global environment</h3>
+<p><code>assign(&quot;imported_data&quot;, data, envir = .GlobalEnv)</code>
+clobbered the user’s workspace and would fail <code>R CMD check</code>
+outright.</p>
+</div>
+</div>
+<div id="crashes-that-were-fixed" class="section level2">
+<h2>Crashes that were fixed</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Input</th>
+<th>Old behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A constant column</td>
+<td><code>scale()</code> returns <code>NaN</code>, whole outlier count
+becomes <code>NA</code></td>
+</tr>
+<tr class="even">
+<td>Exactly one numeric column</td>
+<td><code>data[, sapply(data, is.numeric)]</code> drops to a vector,
+<code>cor()</code> fails</td>
+</tr>
+<tr class="odd">
+<td>One redundant pair</td>
+<td>Index matrix drops to a vector, <code>rownames()</code> is
+<code>NULL</code></td>
+</tr>
+<tr class="even">
+<td>An all-<code>NA</code> column</td>
+<td>Mean is <code>NaN</code>, written into every row by imputation</td>
+</tr>
+<tr class="odd">
+<td>Perfect collinearity</td>
+<td><code>vif()</code> aborts on aliased coefficients</td>
+</tr>
+<tr class="even">
+<td>Zero rows</td>
+<td>Several checks error</td>
+</tr>
+</tbody>
+</table>
+<p>Each has a named regression test in
+<code>tests/testthat/test-edge-cases.R</code>.</p>
+</div>
+<div id="documentation-that-was-reconciled" class="section level2">
+<h2>Documentation that was reconciled</h2>
+<ul>
+<li><code>visualise_outliers</code> in the dissertation’s examples
+versus <code>visualize_outliers</code> in its code; the argument is now
+<code>visualize_outliers</code> throughout.</li>
+<li><code>correlation_threshold</code> defaulted to 0.5 in the text, 0.9
+in the helper and 0.1 in Appendix A.8. It is 0.5.</li>
+<li><code>weights</code>, <code>scoring_ranges</code> and
+<code>return_imputed_data</code> were accepted and never used.
+<code>weights</code> now works; the other two are gone.</li>
+<li>The dissertation describes 13 helper functions but ships a 14th
+(<code>flag_anomalies_in_relationships</code>) that Appendix A does not
+cover. It is retained, documented, and off by default.</li>
+</ul>
+</div>
+<div id="the-scoring-model" class="section level2">
+<h2>The scoring model</h2>
+<p>This is the largest deviation, and it is structural rather than
+numerical.</p>
+<p>The dissertation scores <strong>four dimensions</strong> –
+completeness, accuracy, consistency, timeliness – with measures of its
+own devising. It cites ISO/IEC 25024:2015 eight times, all in the
+literature review, none in the methodology or implementation chapters:
+the citation establishes what the dimensions <em>mean</em> and was never
+a claim of measure conformance.</p>
+<p>This package scores the <strong>five inherent
+characteristics</strong> of ISO/IEC 25012 through the fifteen quality
+properties beneath them, each as a ratio <span class="math inline">\(A/B\)</span> over counted data items. Four
+consequences follow.</p>
+<ul>
+<li><strong><code>timeliness</code> became
+<code>currentness</code></strong>, which is ISO’s word for the same
+characteristic. <code>report$timeliness</code> still resolves, and
+<code>weights</code> still accepts the old name.</li>
+<li><strong><code>credibility</code> is measured</strong>, where the
+dissertation did not measure it at all. Both its properties need a
+declaration, so it reports <code>NA</code> without a
+<code>dg_spec()</code>.</li>
+<li><strong>Accuracy became <code>plausibility</code>.</strong> The
+dissertation’s accuracy score compares values against an interval
+<em>derived</em> from the data; all three ISO accuracy properties need
+one that was <em>declared</em>. The measure is unchanged and still
+reported – under an honest name, and outside the overall score.</li>
+<li><strong>Completeness counts cells, not column averages.</strong> The
+dissertation averages the per-column missing rates, which dilutes a
+badly damaged column: one column 30% empty out of four costs 0.075
+rather than 0.3. <code>COMP_VAL_ESP</code> is the cell ratio, which is
+the form the standard’s <span class="math inline">\(A/B\)</span> takes.
+The old quantity is still derivable from
+<code>report$missing$columns</code>.</li>
+</ul>
+<p><code>vignette(&quot;methodology&quot;)</code> derives every measure. What
+remains unverified against the standard itself is which items ISO counts
+into each <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>; that is stated there too.</p>
+</div>
+<div id="what-did-not-change" class="section level2">
+<h2>What did not change</h2>
+<p>Every statistic. The choice of z-score and IQR methods, the VIF
+computation, the correlation-based redundancy check, the Shapiro-Wilk
+normality test, the mean and median imputation options, and the names of
+all thirteen helper functions. What changed is how those statistics are
+organised into scores – the dissertation’s framework, repaired and then
+mapped onto the standard, not a redesign of the statistics
+themselves.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
